@@ -84,15 +84,42 @@ public class JuegoOpciones {
 			System.out.println("Continuas registrando la habitación y encuentras una puerta de madera que está abierta, avanzas lentamente y te encuentras con una enorme galería iluminada que tiene en el medio una larga mesa para muchos comensales");
 			System.out.println("Todo parece muy lujoso salvo por el hecho de que los cubiertos son de madera y están roidos");
 			System.out.println("La habitación luce abandonada desde hace años, así lo muestran la enormes telarañas que se extienden por las columnas. \n\tDe un golpe se abre una pequeña ventana del techo y escuchas una voz\n\tun tanto siniestra que te dice: *...debes correr muy lejos de aquí...* (tus niveles de locura aumentan significativamente)");
-			locura+=2;
+			locura+=4;
 			comprobadorLocura(locura);
+			System.out.println("\nTras recobrarte del susto intentas centrarte, no sabes donde estás ni como has llegado a este lugar, la ventana está demasiado alta como para poder escalar a mirar el exterior.\n\tEn la derecha de la habitación, casi oculto tras unas cortinas ves un cartel que dice: \n\t1) Escaleras superiores\n\tEscaleras inferiores\n¿Por dónde quieres ir?");
+			opcionUsuario = pedirNumeroInt(scan);
+			switch (opcionUsuario) {
+			case 1: 
+				System.out.println("Subes por las escaleras y desembocas ante una puerta de metal, está un poco oxidada y seguramente seas capaz de abrirla sin problema.\nComienzas a escuchar los gruñidos de antes cada vez más cerca, ¿qué haces?\n\t1) Abrir la puerta y huir\n\t2) Apagar la cerilla y mantenerte en silencio");
+				opcionUsuario = pedirNumeroInt(scan);
+				if (opcionUsuario == 1) {
+					System.out.println("Tras unos fuertes golpes en la puerta consigues abrirla y sales a un enorme patio interior, observas la silueta de una estatua en la mitad del patio\n\tademás puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase");
+					System.out.println("El sonido del chapoteo te hace recordar rápidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crítica)");
+					locura+=7;
+					comprobadorLocura(locura);
+				}				
+				break;
 			
+			case 2:
+				System.out.println("Bajas al sótano");
+				break;
+			default:
+				System.out.println("Comienzas a sentir los gruñidos de antes detrás de tí y decides subir las escaleras esperando llegar a una salida.\nPreso del pánico subes corriendo y encuentras una puerta. Embistes la puerta y sales al exterior\nobservas la silueta de una estatua en la mitad del patio\\n\\tademás puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase El sonido del chapoteo te hace recordar rápidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crítica)");
+				locura+=7;
+				comprobadorLocura(locura);
+				break;
+			}
 		}
 	}
 	static void comprobadorLocura(int locura) {
-		if (locura < 7) {
+		if (locura < 5) {
 			System.out.println("\n\n...Sientes unas voces en tu cabeza que te hablan en un idioma que desconoces...\n\n");
 		}
+		else if (locura >5) {
+			System.out.println(locura);
+			System.out.println("\n\n...Escuchas unas voces en tu cabeza que no comprendes, solo eres capaz de entender la palabra: final...\n\n");
+		}
+		
 		
 	}
 
