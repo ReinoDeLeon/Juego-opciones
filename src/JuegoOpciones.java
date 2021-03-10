@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class JuegoOpciones {
-	
+	static int numeroVecesJugadas = 1; //numero de veces que has vivido la historia
 	static int opcionUsuario;
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -27,6 +27,7 @@ public class JuegoOpciones {
 				System.out.println("Intentas levantarte y pierdes el conocimiento");
 
 			}
+			numeroVecesJugadas++;
 		} while (opcionUsuario > 3 || opcionUsuario < 1);
 
 	}
@@ -87,7 +88,7 @@ public class JuegoOpciones {
 			System.out.println("La habitación luce abandonada desde hace años, así lo muestran la enormes telarañas que se extienden por las columnas. \n\tDe un golpe se abre una pequeña ventana del techo y escuchas una voz\n\tun tanto siniestra que te dice: *...debes correr muy lejos de aquí...* (tus niveles de locura aumentan significativamente)");
 			locura+=4;
 			comprobadorLocura(locura);
-			System.out.println("\nTras recobrarte del susto intentas centrarte, no sabes donde estás ni como has llegado a este lugar, la ventana está demasiado alta como para poder escalar a mirar el exterior.\n\tEn la derecha de la habitación, casi oculto tras unas cortinas ves un cartel que dice: \n\t1) Escaleras superiores\n\tEscaleras inferiores\n¿Por dónde quieres ir?");
+			System.out.println("\nTras recobrarte del susto intentas centrarte, no sabes donde estás ni como has llegado a este lugar, la ventana está demasiado alta como para poder escalar a mirar el exterior.\n\tEn la derecha de la habitación, casi oculto tras unas cortinas ves un cartel que dice: \n\t1) Escaleras superiores\n\t2) Escaleras inferiores (opcion sin preparar)\n¿Por dónde quieres ir?");
 			opcionUsuario = pedirNumeroInt(scan);
 			switch (opcionUsuario) {
 			case 1: 
@@ -117,9 +118,10 @@ public class JuegoOpciones {
 				comprobadorLocura(locura);
 				break;
 			}
-			if (locura < 18 && opcionUsuario == 1) { //continuacion historia zona superior
-				comprobadorLocura(locura);
-				
+			if (opcionUsuario == 1) { //continuacion historia zona superior
+				System.out.println("Te acercas a la estatua del ángel dónde encuentras una inscripción: \n\t\"He sobrevivido "+ numeroVecesJugadas +" veces\"");
+				System.out.println("De repente un golpe seco te hace caer al suelo, desmayado...");
+				opcionUsuario = 15; //continuar juego en bucle
 			}
 			else if (locura < 18 && opcionUsuario == 2) { //continuacion historia zona inferior
 				
