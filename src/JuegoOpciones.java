@@ -13,7 +13,7 @@ public class JuegoOpciones {
 		
 
 
-		System.out.println("Hola");
+		System.out.println("HOLA");
 	}
 
 }
