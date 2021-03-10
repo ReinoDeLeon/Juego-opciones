@@ -10,6 +10,7 @@ public class JuegoOpciones {
 		System.out.println("No recuerdas nada, ni siquiera tu nombre. Tienes un fuerte dolor de cabeza y no sabes qué haces en esa habitación\nni donde está situada");
 
 		do {
+			
 			System.out.println("¿Qué quieres hacer?\n\t1) Investigar la trampilla\n\t2) Abrir la puerta y salir\n\t3) Volverte a dormir (ya que parece una pesadilla)");
 			opcionUsuario = pedirNumeroInt(scan);
 			switch (opcionUsuario) {
@@ -72,7 +73,7 @@ public class JuegoOpciones {
 			if (opcionUsuario == 1) {
 				System.out.println("Abres la tapa de la olla y encuentras un caldo en el que flota una cosa blanca, metes un cucharon para comprobar que es y sacas un pequeño cráneo");
 				System.out.println("Retrocedes de la olla gritando y muerto de miedo lanzas con fuerza la pequeña calavera. (tus niveles de locura aumentan significativamente)");
-				locura+=2;
+				locura+=4;
 				comprobadorLocura(locura);
 			}
 			System.out.println("Te pones a mirar con la cerilla aún encendida por la habitación y encuentras una pequeña caja con un 7 y un cuchillo dibujado, ¿quieres abrirla (si/no)?");
@@ -81,7 +82,7 @@ public class JuegoOpciones {
 				System.out.println("\nAl abrir la caja encuentras una misteriosa tableta de chocolate en perfecto estado, decides comértela pero te sientes extrañado por el estado del chocolate (tu nivel de locura se disminuye)");
 				locura-=1;
 			}
-			System.out.println("Continuas registrando la habitación y encuentras una puerta de madera que está abierta, avanzas lentamente y te encuentras con una enorme galería iluminada que tiene en el medio una larga mesa para muchos comensales");
+			System.out.println("\nContinuas registrando la habitación y encuentras una puerta de madera que está abierta, avanzas lentamente y te encuentras con una enorme galería iluminada que tiene en el medio una larga mesa para muchos comensales");
 			System.out.println("Todo parece muy lujoso salvo por el hecho de que los cubiertos son de madera y están roidos");
 			System.out.println("La habitación luce abandonada desde hace años, así lo muestran la enormes telarañas que se extienden por las columnas. \n\tDe un golpe se abre una pequeña ventana del techo y escuchas una voz\n\tun tanto siniestra que te dice: *...debes correr muy lejos de aquí...* (tus niveles de locura aumentan significativamente)");
 			locura+=4;
@@ -90,18 +91,25 @@ public class JuegoOpciones {
 			opcionUsuario = pedirNumeroInt(scan);
 			switch (opcionUsuario) {
 			case 1: 
-				System.out.println("Subes por las escaleras y desembocas ante una puerta de metal, está un poco oxidada y seguramente seas capaz de abrirla sin problema.\nComienzas a escuchar los gruñidos de antes cada vez más cerca, ¿qué haces?\n\t1) Abrir la puerta y huir\n\t2) Apagar la cerilla y mantenerte en silencio");
+				System.out.println("\nSubes por las escaleras y desembocas ante una puerta de metal, está un poco oxidada y seguramente seas capaz de abrirla sin problema.\nComienzas a escuchar los gruñidos de antes cada vez más cerca, ¿qué haces?\n\t1) Abrir la puerta y huir\n\t2) Apagar la cerilla y mantenerte en silencio");
 				opcionUsuario = pedirNumeroInt(scan);
 				if (opcionUsuario == 1) {
-					System.out.println("Tras unos fuertes golpes en la puerta consigues abrirla y sales a un enorme patio interior, observas la silueta de una estatua en la mitad del patio\n\tademás puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase");
+					System.out.println("\nTras unos fuertes golpes en la puerta consigues abrirla y sales a un enorme patio interior, observas la silueta de una estatua en la mitad del patio\n\tademás puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase");
 					System.out.println("El sonido del chapoteo te hace recordar rápidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crítica)");
 					locura+=7;
 					comprobadorLocura(locura);
-				}				
+				}
+				else {
+					System.out.println("\nApagas rápidamente tu cerilla preso del miedo y tratas de hacer el menor ruido posible, hasta que deja de oírse el chapoteo");
+					System.out.println("Enciendes otra cerilla y encuentras delante de tí una aberración de la naturaleza de color verdoso que con voz dulce te dice:\n\t*...te dije que debías correr muy lejos de aquí...*");
+					System.out.println("\n\tSu voz se torna más grave y los ojos de la criatura se inyectan en sangre: \n\t*...AHORA DEBES MORIR...*");
+					locura+=20; //personaje muere si o sí
+				}
+				
 				break;
 			
 			case 2:
-				System.out.println("Bajas al sótano");
+				System.out.println("\nBajas al sótano, cada vez sientes más y más frío");
 				break;
 			default:
 				System.out.println("Comienzas a sentir los gruñidos de antes detrás de tí y decides subir las escaleras esperando llegar a una salida.\nPreso del pánico subes corriendo y encuentras una puerta. Embistes la puerta y sales al exterior\nobservas la silueta de una estatua en la mitad del patio\\n\\tademás puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase El sonido del chapoteo te hace recordar rápidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crítica)");
@@ -109,18 +117,37 @@ public class JuegoOpciones {
 				comprobadorLocura(locura);
 				break;
 			}
+			if (locura < 18 && opcionUsuario == 1) { //continuacion historia zona superior
+				System.out.println("Historia continua");
+				
+			}
+			else if (locura < 18 && opcionUsuario == 2) { //continuacion historia zona inferior
+				
+			}
+			else {
+				comprobadorLocura(locura);
+				
+			}
+			
+			
 		}
 	}
 	static void comprobadorLocura(int locura) {
 		if (locura < 5) {
 			System.out.println("\n\n...Sientes unas voces en tu cabeza que te hablan en un idioma que desconoces...\n\n");
 		}
-		else if (locura >5) {
-			System.out.println(locura);
+		else if (locura >5 && locura < 10) {
 			System.out.println("\n\n...Escuchas unas voces en tu cabeza que no comprendes, solo eres capaz de entender la palabra: final...\n\n");
+			locura++;
 		}
-		
-		
+		else if (locura > 10 && locura < 18) {
+			System.out.println("\n\n...Crees entender las voces de tu cabeza que te dicen este es el final de tu historia...\n\n");
+			locura++;
+		}
+		else if (locura > 18) {
+			System.out.println("\n\n...Comienzas a ver bichos subiendo por tu piel y tratas de arrancártela, lo que provoca tu muerte...\n\n\n\n\t\tHAS MUERTO");
+			
+		}
 	}
 
 }
