@@ -135,7 +135,7 @@ public class JuegoOpciones {
 			System.out.println("La rata te arranca un ojo por el cual se mete en tu cabeza y mueres");
 			opcionUsuario = 15;
 		}
-		
+		if(locura<5) {
 		System.out.println("Ves un mantel viejo, lo sacudes y te tapas la herida supurante del tobillo, cojeando vas al final de la habitación hay una puerta que parece que da al exterior, pero tiene una gran cerradura que se encuentra cerrada. Cerca de la puerta hay un espejo tapado, que desentona con el resto del salón, siendo este el único mueble cubierto del polvo");
 		System.out.println("Te decides a destaparlo, al hacerlo empiezas a toser y lees en el clistal, escrito con sangre,\n\n\"Es solo una ilusión\"\n\n");
 		System.out.println("En ese momento observas tu rostro en el espejo, y te das cuenta de que tiene pagado en la frente una llave, la cual pruebas con la cerradura de la puerta");
@@ -157,13 +157,13 @@ public class JuegoOpciones {
 		default:
 			System.out.println("Una sombra se acerca a ti de forma vertiginosa...");
 			opcionUsuario = 15;
+			}
 		}
 	}
 
 	public static void comprobadorLocuraPuerta(int locura) {
-		System.out.println(locura);
+
 		if (locura >= 5) {
-			
 			System.out.println("Sientes que tu no eres tu, te miras en un reflejo, y ves que tu cara se ha vuelto borrosa y no tienes boca, lo que provoca que salgas corriendo hacia una pared con el cuchillo en el pecho, muriendo en el acto.");
 			System.out.println("\n\nSe acabó, has muerto");
 			opcionUsuario = 15;
