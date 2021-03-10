@@ -6,6 +6,9 @@ public class JuegoOpciones {
 		// TODO Auto-generated method stub
 		//probando commit
 		
+		System.out.println("CORRE PLATANO");
+		
+		
 		System.out.println("Yo me llamo Ralph");
 		
 
