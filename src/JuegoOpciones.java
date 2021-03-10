@@ -6,6 +6,10 @@ public class JuegoOpciones {
 
 		//probando commit
 
+		//prueba origin
+		
 	}
 
 }
+
+
