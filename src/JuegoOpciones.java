@@ -5,6 +5,8 @@ public class JuegoOpciones {
 		// TODO Auto-generated method stub
 
 		//probando commit
+		//prueba origin
+		
 	}
 
 }
