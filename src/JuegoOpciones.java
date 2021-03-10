@@ -118,7 +118,7 @@ public class JuegoOpciones {
 				break;
 			}
 			if (locura < 18 && opcionUsuario == 1) { //continuacion historia zona superior
-				System.out.println("Historia continua");
+				comprobadorLocura(locura);
 				
 			}
 			else if (locura < 18 && opcionUsuario == 2) { //continuacion historia zona inferior
