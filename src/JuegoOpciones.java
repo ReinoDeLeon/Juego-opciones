@@ -1,4 +1,5 @@
 
+
 public class JuegoOpciones {
 
 	public static void main(String[] args) {
@@ -7,6 +8,12 @@ public class JuegoOpciones {
 		
 		System.out.println("Yo me llamo Ralph");
 		
+
+
+		System.out.println("Hola");
 	}
 
 }
+
+
+
