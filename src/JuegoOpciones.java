@@ -49,4 +49,10 @@ public class JuegoOpciones {
 		return 0;
 	}
 
+	public static void comprobadorLocura(int locura) {
+		if (locura < 7) {
+			System.out.println("\n\n...Sientes unas voces en tu cabeza que te hablan en un idioma que desconoces...\n\n");
+		}
+		
+	}
 }
