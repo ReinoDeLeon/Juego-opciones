@@ -81,7 +81,7 @@ public class JuegoOpciones {
 		case 3:
 			cuchillo = true;
 			opcionUsuario = 2;
-			System.out.println("Descubres un cajón secreto debajo del escritorio,en ella hay un cuchillo de la misma cuberteria que la cuchara y el tenedor, te lo llevas contigo.");
+			System.out.println("Descubres un cajón secreto debajo del escritorio, en ella hay un cuchillo de la misma cuberteria que la cuchara y el tenedor, te lo llevas contigo.");
 			break;
 		default: 
 			System.out.println("Decides no coger nada, ya que no parece tener ningún uso futuro.");
@@ -90,7 +90,7 @@ public class JuegoOpciones {
 		
 		System.out.println("Te adentras en la habitación, candil en mano, es un gran salón lleno de muebles viejos sin cubir y lleno de polvo, es tan grande que no ves al final del gran cuarto.");
 		System.out.println("Escuchas unos crujidos en debajo de tus pies, como si algo se moviera en el piso inferior.");
-		System.out.println("La situacion te pone mas nervioso al fijarte que todos los cuadros de la sala tienen las caras tachadas de forma muy macabra, subiendo tu nivel de locura.");
+		System.out.println("La situación te pone más nervioso al fijarte que todos los cuadros de la sala tienen las caras tachadas de forma muy macabra, subiendo tu nivel de locura.");
 		
 		comprobadorLocuraPuerta(locura);
 		
