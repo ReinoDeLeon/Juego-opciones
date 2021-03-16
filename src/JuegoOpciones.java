@@ -3,52 +3,135 @@ import java.util.Scanner;
 
 public class JuegoOpciones {
 
+	static int numeroVecesJugadas = 1; //numero de veces que has vivido la historia
 	static int opcionUsuario;
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Despiertas en la cama de una pequeña habitación que solamente tiene una puerta pequeña de madera al fondo,\nal lado de la cama tiene una trampilla y vislumbras una luz tenue de una vela en el suelo");
-		System.out.println("No recuerdas nada, ni siquiera tu nombre. Tienes un fuerte dolor de cabeza y no sabes qué haces en esa habitación\nni donde está situada");
+		System.out.println("Despiertas en la cama de una pequeÃ±a habitaciÃ³n que solamente tiene una puerta pequeÃ±a de madera al fondo,\nal lado de la cama tiene una trampilla y vislumbras una luz tenue de una vela en el suelo");
+		System.out.println("No recuerdas nada, ni siquiera tu nombre. Tienes un fuerte dolor de cabeza y no sabes quÃ© haces en esa habitaciÃ³n\nni donde estÃ¡ situada");
 
 		do {
-			System.out.println("¿Qué quieres hacer?\n\t1) Investigar la trampilla\n\t2) Abrir la puerta y salir\n\t3) Volverte a dormir (ya que parece una pesadilla)");
+
+			System.out.println("Â¿QuÃ© quieres hacer?\n\t1) Investigar la trampilla\n\t2) Abrir la puerta y salir\n\t3) Volverte a dormir (ya que parece una pesadilla)");
 			opcionUsuario = pedirNumeroInt(scan);
 			switch (opcionUsuario) {
 			case 1: 
-				System.out.println("Trampilla");
+
+				trampilla(scan);
 				break;
 			case 2: 
 				System.out.println("Puerta");
 				break;
 			case 3: 
-				System.out.println("Dormirse");
+				
 				dormirse(scan);
 				break;
 			default: 
 				System.out.println("Intentas levantarte y pierdes el conocimiento");
 
 			}
+			numeroVecesJugadas++;
 		} while (opcionUsuario > 3 || opcionUsuario < 1);
 
 	}
 	public static int pedirNumeroInt(Scanner scan) {
 		/*
-		 * pediremos un numero y comprobamos que la entrada por teclado es numérica
+		 * pediremos un numero y comprobamos que la entrada por teclado es numÃ©rica
 		 */
 		boolean control = true;
 		do {
 			try {
-				System.out.print("Introduzca una opción: -> ");
+				System.out.print("Introduzca una opciÃ³n: -> ");
 				int valor = scan.nextInt();
+				scan.nextLine();
 				control = false;
 				return valor;
 			} catch (InputMismatchException e) {
 				scan.next();
-				System.out.println("El valor introducido no es numérico o contiene decimales");
+				System.out.println("El valor introducido no es numÃ©rico o contiene decimales");
 				continue;
 			}
 		} while (control);
 		return 0;
 	}
+	static void trampilla(Scanner scan) {
+		int locura = 0;
+		String decisionSiNo = "";
+		System.out.println("\nTe situas encima de la carcomida trampilla y te arrodillas para tocar su superficie en busca de un pomo.");
+		System.out.println("Comienzas a notar unos crujidos bajo tus rodillas, intentas levantarte rÃ¡pidamente. Ya es tarde, para cuando consigues levantarte escuchas un fuerte chasquido que indica que la trampilla se ha roto bajo tus pies y te precipitas al vacÃ­o");
+		System.out.println("\nTras un golpe sordo te levantas aturdido, sientes un sabor metÃ¡lico en la boca pero parece que no te has hecho daÃ±o. Notas un bulto en la pierna que se te clava a travÃ©s del pantalÃ³n, acercas tu mano al bolsillo y encuentras una pequeÃ±a caja de cerillas.");
+		System.out.println("\nSe escucha un lejano gruÃ±ido en la oscura habitaciÃ³n, Â¿quÃ© haces?:\n\t1) Enciendes una cerilla para tratar de buscar el origen de ese ruido\n\t2) Te mantienes lo mÃ¡s silencioso posible a la espera de que el ruido se aleje\n");
+		opcionUsuario = pedirNumeroInt(scan);
+		if (opcionUsuario == 1) {
+			System.out.println("\nPresa del miedo enciendes rÃ¡pidamente una cerilla para iluminar la habitaciÃ³n.");
+			System.out.println("Una siniestra voz te susurra al oÃ­do: *no deberÃ­as haber bajado aquÃ­...*");
+			System.out.println("Notas como el aire se hace cada vez mÃ¡s denso y comienzas a sufir alucinaciones, cuanto mÃ¡s tiempo pasa, mÃ¡s te cuesta respirar. Tu mente empieza a nublarse mientras caes desplomado al suelo.\nLa siniestra voz te habla por Ãºltima vez: *...ahora formarÃ¡s parte del a historia de este lugar...*");
+			System.out.println("Tu respiraciÃ³n se va apagando lentamente... \n\n\t\tHAS MUERTO");
+		}
+		else {
+			System.out.println("\nPresa del miedo decides agacharte y hacer el menor ruido posible.");
+			System.out.println("El gruÃ±ido se aleja junto con el sonido como de chapotear en un charco. Agazapado en esa habitaciÃ³n te parece ver, de forma fugaz, la imagen de un escritorio de roble con un oxidado candil encima");
+			System.out.println("\nEl ambiente se queda en completo silencio, los chapoteos se han disipado en la lejanÃ­a, decides encender una cerilla ahora que sabes que estÃ¡s a salvo");
+			System.out.println("Encuentras a tu alrededor una enorme cocina en la que parece que hace tiempo que no se utiliza, tienes hambre y puedes vislumbrar en la penumbra una olla\n\t1) Te acercas a inspeccionar la olla\n\t2) Buscas en la cocina a ver si encuentras comida fresca");
+			opcionUsuario = pedirNumeroInt(scan);
+			if (opcionUsuario == 1) {
+				System.out.println("Abres la tapa de la olla y encuentras un caldo en el que flota una cosa blanca, metes un cucharon para comprobar que es y sacas un pequeÃ±o crÃ¡neo");
+				System.out.println("Retrocedes de la olla gritando y muerto de miedo lanzas con fuerza la pequeÃ±a calavera. (tus niveles de locura aumentan significativamente)");
+				locura+=4;
+				comprobadorLocura(locura);
+			}
+			System.out.println("Te pones a mirar con la cerilla aÃºn encendida por la habitaciÃ³n y encuentras una pequeÃ±a caja con un 7 y un cuchillo dibujado, Â¿quieres abrirla (si/no)?");
+			decisionSiNo = scan.nextLine();
+			if (decisionSiNo.equalsIgnoreCase("si")){
+				System.out.println("\nAl abrir la caja encuentras una misteriosa tableta de chocolate en perfecto estado, decides comÃ©rtela pero te sientes extraÃ±ado por el estado del chocolate (tu nivel de locura se disminuye)");
+				locura-=1;
+			}
+			System.out.println("\nContinuas registrando la habitaciÃ³n y encuentras una puerta de madera que estÃ¡ abierta, avanzas lentamente y te encuentras con una enorme galerÃ­a iluminada que tiene en el medio una larga mesa para muchos comensales");
+			System.out.println("Todo parece muy lujoso salvo por el hecho de que los cubiertos son de madera y estÃ¡n roÃ­dos");
+			System.out.println("La habitaciÃ³n luce abandonada desde hace aÃ±os, asÃ­ lo muestran las enormes telaraÃ±as que se extienden por las columnas. \nDe un golpe se abre una pequeÃ±a ventana del techo y escuchas una voz un tanto siniestra que te dice: *...debes correr muy lejos de aquÃ­...* (tus niveles de locura aumentan significativamente)");
+			locura+=4;
+			comprobadorLocura(locura);
+			System.out.println("\nTras recobrarte del susto intentas centrarte, no sabes donde estÃ¡s ni como has llegado a este lugar, la ventana estÃ¡ demasiado alta como para poder escalar a mirar el exterior. En la derecha de la habitaciÃ³n, casi oculto tras unas cortinas ves un cartel que dice: \n\t1) Escaleras superiores\n\t2) Escaleras inferiores\nÂ¿Por dÃ³nde quieres ir?");
+			opcionUsuario = pedirNumeroInt(scan);
+			switch (opcionUsuario) {
+			case 1: 
+				System.out.println("\nSubes por las escaleras y desembocas ante una puerta de metal, estÃ¡ un poco oxidada aunque seguramente seas capaz de abrirla sin problema.\nComienzas a escuchar los gruÃ±idos de antes cada vez mÃ¡s cerca, Â¿quÃ© haces?\n\t1) Abrir la puerta y huir\n\t2) Apagar la cerilla y mantenerte en silencio");
+				opcionUsuario = pedirNumeroInt(scan);
+				if (opcionUsuario == 1) {
+					System.out.println("\nTras unos fuertes golpes en la puerta consigues abrirla y sales a un enorme patio interior, observas la silueta de una estatua en la mitad del patio\n\tademÃ¡s puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase");
+					System.out.println("El sonido del chapoteo te hace recordar rÃ¡pidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crÃ­tica)");
+					locura+=7;
+					comprobadorLocura(locura);
+					System.out.println("Te acercas a la estatua del Ã¡ngel dÃ³nde encuentras una inscripciÃ³n: \n\t\"He sobrevivido "+ numeroVecesJugadas +" veces\"");
+					System.out.println("De repente un golpe seco te hace caer al suelo, desmayado...\n");
+					opcionUsuario = 15; //continuar juego en bucle
+				}
+				else {
+					System.out.println("\nApagas rÃ¡pidamente tu cerilla preso del miedo y tratas de hacer el menor ruido posible, hasta que deja de oÃ­rse el chapoteo");
+					System.out.println("Enciendes otra cerilla y encuentras delante de tÃ­ una aberraciÃ³n de la naturaleza de color verdoso que con voz dulce te dice:\n\t*...te dije que debÃ­as correr muy lejos de aquÃ­...*");
+					System.out.println("\n\tSu voz se torna mÃ¡s grave y los ojos de la criatura se inyectan en sangre: \n\t*...AHORA DEBES MORIR...*");
+					locura+=20; //personaje muere si o sÃ­
+					comprobadorLocura(locura);
+				}
+
+				break;
+
+			case 2:
+				System.out.println("\nCoges las escaleras que bajan a un sÃ³tano, cada vez sientes mÃ¡s y mÃ¡s frÃ­o...\nEl ambiente estÃ¡ muy hÃºmedo, notas bajo tus pies descalzos pequeÃ±os charcos un poco viscosos. Cuidadosamente enciendes tu cerilla y comienzas a mirar a tu alrededor.\nUna extraÃ±a bombilla parpadea con una luz muy tenue al final del enorme pasillo que compone el sÃ³tano.\nObservas que un reguero rojo y viscoso avanza por el suelo hasta una puerta al final de la sala Â¿quÃ© haces?\n\t1) Seguirlo\n\t2) Tratar de obtener mÃ¡s informaciÃ³n de ese fluÃ­do");
+				opcionUsuario = pedirNumeroInt(scan);
+				if (opcionUsuario == 1) {
+					System.out.println("Sigues el reguero sin hacer caso a tu instinto que te dice que deberÃ­as huir de allÃ­.\nA medida que va aumentando el caudal el olor empieza a ser insoportable, sientes un fuerte olor como a carne podrida.\nSin que te des cuenta la aberraciÃ³n que encontraste en la cocina aparece rompiendo la puerta dispuesta a matarte a golpes, Â¿quÃ© haces?\n\t1) Te enfrentas a ella\n\t2) Te preparas para parar el golpe");
+					opcionUsuario = pedirNumeroInt(scan);
+					if (opcionUsuario == 1) {
+						System.out.println("Tratas de darle un golpe cuando la tienes casi encima pero descubres que no es un ser corpÃ³reo, comienzas a notar como tu cuerpo se deshace poco a poco y gritas de dolor mientras agonizas en el suelo...\n\n\n\tHAS MUERTO\n\n\n");
+						break;
+					}
+					else {
+						System.out.println("Para tu suerte recibes un impacto no demasiado fuerte que te deja en el suelo inconsciente...\nCon un primer momento de lucidez eres capaz de ver como algo te estÃ¡ arrastrando por un enorme pasillo de piedra, antes de caer inconsciente de nuevo crees pasar por delante de una habitaciÃ³n con un pequeÃ±o escritorio de roble\n");
+						opcionUsuario = 15; //continuar juego en bucle
+						numeroVecesJugadas++;
+					}
+
 
 	public static void dormirse(Scanner scan) {
 
@@ -59,55 +142,55 @@ public class JuegoOpciones {
 			System.out.println(".");
 		}
 
-		System.out.println("Despiertas en una lúgubre habitación. Una tenue luz de una vela a punto de apagarse flagra en una mesita al lado de la cama.\nConmocionado, sigues sin saber nada, excepto que ya no estas en la misma habitación, todo había pasado, lo de antes solo fue un mal sueño, pero… No era así.");
+		System.out.println("Despiertas en una lï¿½gubre habitaciï¿½n. Una tenue luz de una vela a punto de apagarse flagra en una mesita al lado de la cama.\nConmocionado, sigues sin saber nada, excepto que ya no estas en la misma habitaciï¿½n, todo habï¿½a pasado, lo de antes solo fue un mal sueï¿½o, peroï¿½ No era asï¿½.");
 		System.out.println("\nDistingues la silueta de un hombre dado la espalda. Parece que no sabe que te has despertado.");
-		System.out.println("\n¿Qué decides hacer?\n\n\t1) Preguntas quien es y donde estas.\n\n\t2) Te quedas en silencio.\n");
+		System.out.println("\nï¿½Quï¿½ decides hacer?\n\n\t1) Preguntas quien es y donde estas.\n\n\t2) Te quedas en silencio.\n");
 
 		opcionUsuario = pedirNumeroInt(scan);
 
 
 		if (opcionUsuario == 1) {
 
-			System.out.println("\nSe gira malhumorado y se acerca a ti con rapidez, según se va acercando a la luz vas distinguiéndole cada vez más.\nTe das cuenta de que no es una persona, es algo mucho peor, un ser proveniente del inframundo.\nVestido con lo que parece un uniforme de médico, te mira con unos ojos negros como el carbón que se clavan en tu alma.\nAbre su boca dispuesto a comerte, revela unos dientes afilados, sabes que tu hora había llegado.");
-			System.out.println("\nUn gran estruendo inunda la habitación interrumpiendo al ser que iba a comerte, el sonido parecía de un suelo de madera que se había roto, \nparecía estar a pocos metros de donde te encuentras.");
-			System.out.println("\nEl monstruo parece alertarse bastante, decide pegarte un puñetazo en la cara y se va por una puerta de la habitación en busca de la causa de ese sonido.");
+			System.out.println("\nSe gira malhumorado y se acerca a ti con rapidez, segï¿½n se va acercando a la luz vas distinguiï¿½ndole cada vez mï¿½s.\nTe das cuenta de que no es una persona, es algo mucho peor, un ser proveniente del inframundo.\nVestido con lo que parece un uniforme de mï¿½dico, te mira con unos ojos negros como el carbï¿½n que se clavan en tu alma.\nAbre su boca dispuesto a comerte, revela unos dientes afilados, sabes que tu hora habï¿½a llegado.");
+			System.out.println("\nUn gran estruendo inunda la habitaciï¿½n interrumpiendo al ser que iba a comerte, el sonido parecï¿½a de un suelo de madera que se habï¿½a roto, \nparecï¿½a estar a pocos metros de donde te encuentras.");
+			System.out.println("\nEl monstruo parece alertarse bastante, decide pegarte un puï¿½etazo en la cara y se va por una puerta de la habitaciï¿½n en busca de la causa de ese sonido.");
 			System.out.println("\n\nTu nivel de locura aumenta");
 			locura = 5;
 		} else if (opcionUsuario == 2) {
 			delay(2000);
-			System.out.println("\nUn gran estruendo inunda la habitación, el sonido parecía de un suelo de madera que se había roto, parecía estar a pocos metros de donde te encuentras. \nEl hombre parece alertarse bastante y se va por una puerta de la habitación en busca de la causa de ese sonido.");
+			System.out.println("\nUn gran estruendo inunda la habitaciï¿½n, el sonido parecï¿½a de un suelo de madera que se habï¿½a roto, parecï¿½a estar a pocos metros de donde te encuentras. \nEl hombre parece alertarse bastante y se va por una puerta de la habitaciï¿½n en busca de la causa de ese sonido.");
 		} else {
 			System.out.println("\nNo se que intentas hacer, pero parece que has llamado la atenccion del hombre.");
-			System.out.println("\nSe gira malhumorado y se acerca a ti con rapidez, según se va acercando a la luz vas distinguiéndole cada vez más.\nTe das cuenta de que no es una persona, es algo mucho peor, un ser proveniente del inframundo.\nVestido con lo que parece un uniforme de médico, te mira con unos ojos negros como el carbón que se clavan en tu alma.\nAbre su boca dispuesto a comerte, revela unos dientes afilados, sabes que tu hora había llegado.");
-			System.out.println("\nUn gran estruendo inunda la habitación interrumpiendo al ser que iba a comerte, el sonido parecía de un suelo de madera que se había roto, \nparecía estar a pocos metros de donde te encuentras.");
-			System.out.println("\nEl monstruo parece alertarse bastante, decide pegarte un puñetazo en la cara y se va por una puerta de la habitación en busca de la causa de ese sonido.");
+			System.out.println("\nSe gira malhumorado y se acerca a ti con rapidez, segï¿½n se va acercando a la luz vas distinguiï¿½ndole cada vez mï¿½s.\nTe das cuenta de que no es una persona, es algo mucho peor, un ser proveniente del inframundo.\nVestido con lo que parece un uniforme de mï¿½dico, te mira con unos ojos negros como el carbï¿½n que se clavan en tu alma.\nAbre su boca dispuesto a comerte, revela unos dientes afilados, sabes que tu hora habï¿½a llegado.");
+			System.out.println("\nUn gran estruendo inunda la habitaciï¿½n interrumpiendo al ser que iba a comerte, el sonido parecï¿½a de un suelo de madera que se habï¿½a roto, \nparecï¿½a estar a pocos metros de donde te encuentras.");
+			System.out.println("\nEl monstruo parece alertarse bastante, decide pegarte un puï¿½etazo en la cara y se va por una puerta de la habitaciï¿½n en busca de la causa de ese sonido.");
 			System.out.println("\n\nTu nivel de locura aumenta");
 			locura = 5;
 		}
 
 
 		System.out.println();
-		System.out.println("Sales de la habitación lo antes posible antes de que vuelva eso. Avanzas por un pasillo apagado y mugriento,\nlas telarañas abundan en el zócalo del techo, mientras caminas suena el rechinar del suelo.\nAvanzando por una alfombra roja muy lustrosa llegas a una especie de vestíbulo principal.");
-		System.out.println("\nVes una gran puerta de madera que parece ser la puerta principal de donde te hayas.\nComo no, la puerta está cerrada a cal y canto.");
-		System.out.println("Observando el vestíbulo, ves una gran escalera que sube al piso superior y otro pasillo que no sabes dónde irá.");
-		System.out.println("A la lejanía escuchas pasos, parecen venir de la habitación donde te encontrabas, tenias que salir de allí antes de que supiera que estas aquí.");
+		System.out.println("Sales de la habitaciï¿½n lo antes posible antes de que vuelva eso. Avanzas por un pasillo apagado y mugriento,\nlas telaraï¿½as abundan en el zï¿½calo del techo, mientras caminas suena el rechinar del suelo.\nAvanzando por una alfombra roja muy lustrosa llegas a una especie de vestï¿½bulo principal.");
+		System.out.println("\nVes una gran puerta de madera que parece ser la puerta principal de donde te hayas.\nComo no, la puerta estï¿½ cerrada a cal y canto.");
+		System.out.println("Observando el vestï¿½bulo, ves una gran escalera que sube al piso superior y otro pasillo que no sabes dï¿½nde irï¿½.");
+		System.out.println("A la lejanï¿½a escuchas pasos, parecen venir de la habitaciï¿½n donde te encontrabas, tenias que salir de allï¿½ antes de que supiera que estas aquï¿½.");
 
-		System.out.println("\n¿Qué decides hacer?\n\n\t1) Subes por la escalera.\n\n\t2) Avanzas por el pasillo.\n");
+		System.out.println("\nï¿½Quï¿½ decides hacer?\n\n\t1) Subes por la escalera.\n\n\t2) Avanzas por el pasillo.\n");
 		opcionUsuario = pedirNumeroInt(scan);
 
 		if (opcionUsuario == 1) {
 
-			System.out.println("Subes rápido pero con cuidado de no hacer ruido por la escalera, y llegas a un pasillo.");
-			System.out.println("\nTienes dos caminos, ir por la izquierda o por la derecha\n¿Por cual decides ir?\n\n\t1) Izquierda.\n\n\t2) Derecha\n");
+			System.out.println("Subes rï¿½pido pero con cuidado de no hacer ruido por la escalera, y llegas a un pasillo.");
+			System.out.println("\nTienes dos caminos, ir por la izquierda o por la derecha\nï¿½Por cual decides ir?\n\n\t1) Izquierda.\n\n\t2) Derecha\n");
 			opcionUsuario = pedirNumeroInt(scan);
 			if (opcionUsuario == 1) {
 
-				System.out.println("\nCaminas rápido por un pasillo angosto, los pasos detrás de ti cada vez suenan más fuerte y más cercanos, tu corazón palpita cada vez mas rápido.");
+				System.out.println("\nCaminas rï¿½pido por un pasillo angosto, los pasos detrï¿½s de ti cada vez suenan mï¿½s fuerte y mï¿½s cercanos, tu corazï¿½n palpita cada vez mas rï¿½pido.");
 				System.out.println("No ves nada mas que una puerta al final, un fuerte grito dirigido a ti suena a tus espaldas a escasos metros.");
-				System.out.println("Empiezas a correr, pero los pasos detrás de ti se agilizan y cada vez están mas cerca.");
-				System.out.println("Llegas al final del pasillo, abres la puerta rápidamente, y entras, al cerrar la puerta ves aquello que te perseguía y estaba ahí justamente,\ntu corazón palpita a punto de explotar, pero le cierras la puerta con fuerza.");
-				System.out.println("No puedes más, tu corazón palpita tan fuerte que te agarras el pecho y…");
-				System.out.println("PUM………\n");
+				System.out.println("Empiezas a correr, pero los pasos detrï¿½s de ti se agilizan y cada vez estï¿½n mas cerca.");
+				System.out.println("Llegas al final del pasillo, abres la puerta rï¿½pidamente, y entras, al cerrar la puerta ves aquello que te perseguï¿½a y estaba ahï¿½ justamente,\ntu corazï¿½n palpita a punto de explotar, pero le cierras la puerta con fuerza.");
+				System.out.println("No puedes mï¿½s, tu corazï¿½n palpita tan fuerte que te agarras el pecho yï¿½");
+				System.out.println("PUMï¿½ï¿½ï¿½\n");
 				delay(30000);
 				System.out.println("Te relajas, parece que todo ha pasado.");
 				delay(3000);
@@ -121,21 +204,21 @@ public class JuegoOpciones {
 			} else if (opcionUsuario == 2) {
 
 				System.out.println("\nAvanzas por la derecha, te das cuenta de que el pasillo no tiene escapatoria, solo un ventanal al final del pasillo. Decides volver pero al darte la vuelta hay una pared.\n");
-				System.out.println("Se escucha un fuerte mecanismo de engranajes y la pared comienza a desplazarse hacia tu posición. Intentas pararla sin conseguir nada, la pared cada vez va más rápido.");
-				System.out.println("Poco a poco te vas acercando al ventanal, del miedo, la única reacción que toma tu cuerpo es correr hacia el ventanal y saltas hacia él.");
-				System.out.println("El ventanal daba a un patio interior, con la mala suerte de caer encima de una valla, clavándote la punta de flecha en el estómago.\n");
+				System.out.println("Se escucha un fuerte mecanismo de engranajes y la pared comienza a desplazarse hacia tu posiciï¿½n. Intentas pararla sin conseguir nada, la pared cada vez va mï¿½s rï¿½pido.");
+				System.out.println("Poco a poco te vas acercando al ventanal, del miedo, la ï¿½nica reacciï¿½n que toma tu cuerpo es correr hacia el ventanal y saltas hacia ï¿½l.");
+				System.out.println("El ventanal daba a un patio interior, con la mala suerte de caer encima de una valla, clavï¿½ndote la punta de flecha en el estï¿½mago.\n");
 				System.out.println("Te desangras lentamente hasta morir.\n\n");
 				main(null);
 
 			} else {
 				
 				System.out.println("De los nervios, no decides con certeza y eliges el camino de la izquierda.");
-				System.out.println("\nCaminas rápido por un pasillo angosto, los pasos detrás de ti cada vez suenan más fuerte y más cercanos, tu corazón palpita cada vez mas rápido.");
+				System.out.println("\nCaminas rï¿½pido por un pasillo angosto, los pasos detrï¿½s de ti cada vez suenan mï¿½s fuerte y mï¿½s cercanos, tu corazï¿½n palpita cada vez mas rï¿½pido.");
 				System.out.println("No ves nada mas que una puerta al final, un fuerte grito dirigido a ti suena a tus espaldas a escasos metros.");
-				System.out.println("Empiezas a correr, pero los pasos detrás de ti se agilizan y cada vez están mas cerca.");
-				System.out.println("Llegas al final del pasillo, abres la puerta rápidamente, y entras, al cerrar la puerta ves aquello que te perseguía y estaba ahí justamente,\ntu corazón palpita a punto de explotar, pero le cierras la puerta con fuerza.");
-				System.out.println("No puedes más, tu corazón palpita tan fuerte que te agarras el pecho y…");
-				System.out.println("PUM………\n");
+				System.out.println("Empiezas a correr, pero los pasos detrï¿½s de ti se agilizan y cada vez estï¿½n mas cerca.");
+				System.out.println("Llegas al final del pasillo, abres la puerta rï¿½pidamente, y entras, al cerrar la puerta ves aquello que te perseguï¿½a y estaba ahï¿½ justamente,\ntu corazï¿½n palpita a punto de explotar, pero le cierras la puerta con fuerza.");
+				System.out.println("No puedes mï¿½s, tu corazï¿½n palpita tan fuerte que te agarras el pecho yï¿½");
+				System.out.println("PUMï¿½ï¿½ï¿½\n");
 				delay(30000);
 				System.out.println("Te relajas, parece que todo ha pasado.");
 				delay(3000);
@@ -151,33 +234,33 @@ public class JuegoOpciones {
 		} else if (opcionUsuario == 2) {
 
 			System.out.println("Continuas con prisa por el pasillo, avanzando por el ves dos puertas entreabiertas, tienes que elegir una de ellas para esconderte.");
-			System.out.println("\nTienes dos caminos, la puerta de la izquierda o la puerta de la derecha\n¿Por cual decides ir?\n\n\t1) Puerta izquierda.\n\n\t2) Puerta derecha\n");
+			System.out.println("\nTienes dos caminos, la puerta de la izquierda o la puerta de la derecha\nï¿½Por cual decides ir?\n\n\t1) Puerta izquierda.\n\n\t2) Puerta derecha\n");
 			opcionUsuario = pedirNumeroInt(scan);
 			
 			if (opcionUsuario == 1) {
 				
 				System.out.println("Abres la puerta de la izquierda y entras, cierras la puerta y esperas en silencio.");
-				System.out.println("Escuchas unos pasos que se acercan cada vez más, y se paran justo al otro lado de la puerta.");
+				System.out.println("Escuchas unos pasos que se acercan cada vez mï¿½s, y se paran justo al otro lado de la puerta.");
 				delay(3000);
-				System.out.println("\nLos pasos se vuelven a oír alejándose cada vez más, parece que el peligro ha pasado. Mejor será no salir.");
+				System.out.println("\nLos pasos se vuelven a oï¿½r alejï¿½ndose cada vez mï¿½s, parece que el peligro ha pasado. Mejor serï¿½ no salir.");
 				
-				System.out.println("Estas en una habitación completamente a oscuras, notas un escalón, parece que hay unas escaleras hacia abajo, pero no es muy buena idea bajar a oscuras,");
-				System.out.println("notas un olor extraño y una brisa roza tu cara. Encima de ti, notas una cuerda que acciona un interruptor.");
-				System.out.println("\nPuedes accionar el interrupto para encender la luz o bajar las escaleras a oscuras\n¿Que decides hacer?\n\n\t1) Bajas a tientas las escaleras\n\n\t2) Enciendes la luz\n");
+				System.out.println("Estas en una habitaciï¿½n completamente a oscuras, notas un escalï¿½n, parece que hay unas escaleras hacia abajo, pero no es muy buena idea bajar a oscuras,");
+				System.out.println("notas un olor extraï¿½o y una brisa roza tu cara. Encima de ti, notas una cuerda que acciona un interruptor.");
+				System.out.println("\nPuedes accionar el interrupto para encender la luz o bajar las escaleras a oscuras\nï¿½Que decides hacer?\n\n\t1) Bajas a tientas las escaleras\n\n\t2) Enciendes la luz\n");
 				opcionUsuario = pedirNumeroInt(scan);
 				
 				if (opcionUsuario == 1) {
 					
-					System.out.println("\nTe dispones a bajar las escaleras con cuidado, escalón a escalón el olor cada vez es mas fuerte.");
-					System.out.println("Un escalón mal colocado te hace tropezar haciendo que vayas de cabeza contra el vacío.\n");
-					System.out.println("Caes contra un escalón, que te da en la cabeza y quedas inconsciente, las escaleras se pierden en el vacío.");
-					System.out.println("Tu cuerpo sigue cayendo sin fin a un vacío oscuro y frio, donde se perderá para siempre.\n\n");
+					System.out.println("\nTe dispones a bajar las escaleras con cuidado, escalï¿½n a escalï¿½n el olor cada vez es mas fuerte.");
+					System.out.println("Un escalï¿½n mal colocado te hace tropezar haciendo que vayas de cabeza contra el vacï¿½o.\n");
+					System.out.println("Caes contra un escalï¿½n, que te da en la cabeza y quedas inconsciente, las escaleras se pierden en el vacï¿½o.");
+					System.out.println("Tu cuerpo sigue cayendo sin fin a un vacï¿½o oscuro y frio, donde se perderï¿½ para siempre.\n\n");
 					main(null);
 					
 				} else if (opcionUsuario == 2) {
 					
-					System.out.println("Alzas la mano para encender el interruptor. La luz parpadea, apagas y vuelves a encender, delante de ti se encuentra ese ser que se disponía a matarte.");
-					System.out.println("Es… horroroso…");
+					System.out.println("Alzas la mano para encender el interruptor. La luz parpadea, apagas y vuelves a encender, delante de ti se encuentra ese ser que se disponï¿½a a matarte.");
+					System.out.println("Esï¿½ horrorosoï¿½");
 					System.out.println("Te deja sin palabras");
 					System.out.println("Sin consciencia propia");
 					System.out.println("Tu mano agarrotada en la cuerda del interruptor, del miedo, accionas el interruptor, apagando la luz.");
@@ -188,9 +271,9 @@ public class JuegoOpciones {
 					
 				} else {
 					
-					System.out.println("Te mareas y no mantienes el control, hace que vayas de cabeza contra el vacío.");
-					System.out.println("Caes contra un escalón, que te da en la cabeza y quedas inconsciente, las escaleras se pierden en el vacío.");
-					System.out.println("Tu cuerpo sigue cayendo sin fin a un vacío oscuro y frio, donde se perderá para siempre.");
+					System.out.println("Te mareas y no mantienes el control, hace que vayas de cabeza contra el vacï¿½o.");
+					System.out.println("Caes contra un escalï¿½n, que te da en la cabeza y quedas inconsciente, las escaleras se pierden en el vacï¿½o.");
+					System.out.println("Tu cuerpo sigue cayendo sin fin a un vacï¿½o oscuro y frio, donde se perderï¿½ para siempre.");
 					main(null);
 					
 				}
@@ -199,40 +282,40 @@ public class JuegoOpciones {
 			} else if (opcionUsuario == 2) {
 				
 				System.out.println("Abres la puerta de la derecha y entras, cierras la puerta y esperas en silencio.");
-				System.out.println("Escuchas unos pasos que se acercan cada vez más, y se paran justo al otro lado de la puerta.");
+				System.out.println("Escuchas unos pasos que se acercan cada vez mï¿½s, y se paran justo al otro lado de la puerta.");
 				delay(3000);
-				System.out.println("\nLos pasos se vuelven a oír alejándose cada vez más, parece que el peligro ha pasado. Mejor será no salir.");
-				System.out.println("En cuanto te tranquilizas, notas un olor pestilente, al girarte ves que te encuentras en un establo muy descuidado, esta todo completamente vacío y destrozado.\n");
-				System.out.println("Al final del establo ves un portón abierto que da al exterior, avanzas hacia él. ");
-				System.out.println("Al lado del portón, en una escuadra medio decente escuchas unos ruidos, al acercarte ves un rocín que se levanta y se acerca cariñosamente.");
+				System.out.println("\nLos pasos se vuelven a oï¿½r alejï¿½ndose cada vez mï¿½s, parece que el peligro ha pasado. Mejor serï¿½ no salir.");
+				System.out.println("En cuanto te tranquilizas, notas un olor pestilente, al girarte ves que te encuentras en un establo muy descuidado, esta todo completamente vacï¿½o y destrozado.\n");
+				System.out.println("Al final del establo ves un portï¿½n abierto que da al exterior, avanzas hacia ï¿½l. ");
+				System.out.println("Al lado del portï¿½n, en una escuadra medio decente escuchas unos ruidos, al acercarte ves un rocï¿½n que se levanta y se acerca cariï¿½osamente.");
 				
 				do {
 					
-				System.out.println("\nTienes que salir de aquí\n¿Que decides hacer?\n\n\t1) Dejar el caballo y salir a pie al exterior.\n\n\t2) Montarte en el caballo y salir con él al exterior.\n");
+				System.out.println("\nTienes que salir de aquï¿½\nï¿½Que decides hacer?\n\n\t1) Dejar el caballo y salir a pie al exterior.\n\n\t2) Montarte en el caballo y salir con ï¿½l al exterior.\n");
 				opcionUsuario = pedirNumeroInt(scan);
 				
 				if (opcionUsuario == 1) {
 					
-					System.out.println("Sales por el portón corriendo, sin mirar atrás para no perder tiempo. Corres sin parar, pero no sabes a dónde vas, este todo oscuro.");
-					System.out.println("Escuchas un fuerte sonido de una cuerda destensarse a la lejanía.");
-					System.out.println("Un silbido suena cada vez más cerca.");
-					System.out.println("Y de repente…\n\n");
+					System.out.println("Sales por el portï¿½n corriendo, sin mirar atrï¿½s para no perder tiempo. Corres sin parar, pero no sabes a dï¿½nde vas, este todo oscuro.");
+					System.out.println("Escuchas un fuerte sonido de una cuerda destensarse a la lejanï¿½a.");
+					System.out.println("Un silbido suena cada vez mï¿½s cerca.");
+					System.out.println("Y de repenteï¿½\n\n");
 					delay(10000);
-					System.out.println("Un gran arpón te ensarta el corazón por las espalada.\n");
+					System.out.println("Un gran arpï¿½n te ensarta el corazï¿½n por las espalada.\n");
 					System.out.println("Caes al instante apaciguado, a los pocos segundos, tu cuerpo yace sin vida en el suelo.\n");
 					System.out.println("Y poco a poco te van arrastrando devuelta a ese lugar maldito.\n\n\n\n");
 					main(null);
 					
 				} else if (opcionUsuario == 2) {
 					
-					System.out.println("Te subes a lomos del caballo, y cabalgas rápido hacia el horizonte oscuro.");
-					System.out.println("Escuchas un fuerte sonido de una cuerda destensarse a la lejanía.");
-					System.out.println("Un silbido suena cada vez más cerca.");
-					System.out.println("Un arpón cae a pocos metros de ti, parece que te has librado.");
-					System.out.println("Todo parece sombrío y frio, parece que has escapado de ese maldito lugar.");
-					System.out.println("No ves absolutamente nada, la oscuridad te va comiendo cada vez más, no consigues ver ni el suelo.");
-					System.out.println("Poco a poco la oscuridad va encerrándote más, en pocos segundos el caballo desaparece de tu vista.");
-					System.out.println("Caes a un vacío que te consume, sientes mas frio y que tu alama se separa de tu cuerpo, cierras los ojos y notas una paz eterna…\n\n");
+					System.out.println("Te subes a lomos del caballo, y cabalgas rï¿½pido hacia el horizonte oscuro.");
+					System.out.println("Escuchas un fuerte sonido de una cuerda destensarse a la lejanï¿½a.");
+					System.out.println("Un silbido suena cada vez mï¿½s cerca.");
+					System.out.println("Un arpï¿½n cae a pocos metros de ti, parece que te has librado.");
+					System.out.println("Todo parece sombrï¿½o y frio, parece que has escapado de ese maldito lugar.");
+					System.out.println("No ves absolutamente nada, la oscuridad te va comiendo cada vez mï¿½s, no consigues ver ni el suelo.");
+					System.out.println("Poco a poco la oscuridad va encerrï¿½ndote mï¿½s, en pocos segundos el caballo desaparece de tu vista.");
+					System.out.println("Caes a un vacï¿½o que te consume, sientes mas frio y que tu alama se separa de tu cuerpo, cierras los ojos y notas una paz eternaï¿½\n\n");
 					delay(15000);
 					main(null);
 					
@@ -248,7 +331,7 @@ public class JuegoOpciones {
 				
 				System.out.println("No sabes que decision tomar. Te quedas paralizado\n");
 				System.out.println("Los pasos por detras suenan cada vez mas cerca, derrepente recibes un fuerte golpe en la cabeza que te deja incosciente al instante.");
-				System.out.println("Notas como te arrastran y te llevan a una habitación.");
+				System.out.println("Notas como te arrastran y te llevan a una habitaciï¿½n.");
 				main(null);
 			}
 			
@@ -256,7 +339,7 @@ public class JuegoOpciones {
 
 			System.out.println("No sabes que decision tomar. Te quedas paralizado\n");
 			System.out.println("Los pasos por detras suenan cada vez mas cerca, derrepente recibes un fuerte golpe en la cabeza que te deja incosciente al instante.");
-			System.out.println("Notas como te arrastran y te llevan a una habitación.");
+			System.out.println("Notas como te arrastran y te llevan a una habitaciï¿½n.");
 			main(null);
 			
 		}
@@ -265,6 +348,27 @@ public class JuegoOpciones {
 	}
 
 	public static void comprobadorLocura(int locura) {
+
+				} 
+				else {
+					System.out.println("Tratas de averiguar quÃ© es el extraÃ±o fluÃ­do que tienes bajo tus pies, acercas la cerilla pero a penas eres capaz de ver algo que no sea el color rojo, parece sangre pero no estÃ¡s seguro de dÃ³nde puede proceder, comienzas a avanzar lentamente siguiendo el rastro y te cortas con un pequeÃ±o trozo de metal en la pierna. A medida que te acercas a las puerta, sientes como el suelo vibra bajo tus pies, como si algo muy pesado estuviera corriendo. Crees que estÃ¡s volviÃ©ndote loco y lo ignoras.\nAbres la enorme puerta y al otro lado encuentras un espejo con una mancha de sangre que dice:\n\t*Nunca podremos salir de aquÃ­*\n\nDebido a tus heridas caes al suelo desorientado.\n");
+					opcionUsuario = 15; //continuar juego en bucle
+					numeroVecesJugadas++;
+
+				}
+
+				break;
+			default:
+				System.out.println("Comienzas a sentir los gruÃ±idos de antes detrÃ¡s de tÃ­ y decides subir las escaleras esperando llegar a una salida.\nPreso del pÃ¡nico subes corriendo y encuentras una puerta. Embistes la puerta y sales al exterior\nobservas la silueta de una estatua en la mitad del patio\\n\\tademÃ¡s puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase El sonido del chapoteo te hace recordar rÃ¡pidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crÃ­tica)\n");
+				locura+=7;
+				comprobadorLocura(locura);
+				break;
+			}
+
+		}
+	}
+	static void comprobadorLocura(int locura) {
+
 		if (locura < 5) {
 			System.out.println("\n\n...Sientes unas voces en tu cabeza que te hablan en un idioma que desconoces...\n\n");
 		}
@@ -277,7 +381,8 @@ public class JuegoOpciones {
 			locura++;
 		}
 		else if (locura > 18) {
-			System.out.println("\n\n...Comienzas a ver bichos subiendo por tu piel y tratas de arrancártela, lo que provoca tu muerte...\n\n\n\n\t\tHAS MUERTO");
+
+			System.out.println("\n\n...Comienzas a ver bichos subiendo por tu piel y tratas de arrancï¿½rtela, lo que provoca tu muerte...\n\n\n\n\t\tHAS MUERTO");
 
 		}
 	}
@@ -289,5 +394,6 @@ public class JuegoOpciones {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+
 	}
 }
