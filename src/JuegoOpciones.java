@@ -131,7 +131,24 @@ public class JuegoOpciones {
 						opcionUsuario = 15; //continuar juego en bucle
 						numeroVecesJugadas++;
 					}
+				} 
+				else {
+					System.out.println("Tratas de averiguar qué es el extraño fluído que tienes bajo tus pies, acercas la cerilla pero a penas eres capaz de ver algo que no sea el color rojo, parece sangre pero no estás seguro de dónde puede proceder, comienzas a avanzar lentamente siguiendo el rastro y te cortas con un pequeño trozo de metal en la pierna. A medida que te acercas a las puerta, sientes como el suelo vibra bajo tus pies, como si algo muy pesado estuviera corriendo. Crees que estás volviéndote loco y lo ignoras.\nAbres la enorme puerta y al otro lado encuentras un espejo con una mancha de sangre que dice:\n\t*Nunca podremos salir de aquí*\n\nDebido a tus heridas caes al suelo desorientado.\n");
+					opcionUsuario = 15; //continuar juego en bucle
+					numeroVecesJugadas++;
 
+				}
+
+				break;
+			default:
+				System.out.println("Comienzas a sentir los gruñidos de antes detrás de tí y decides subir las escaleras esperando llegar a una salida.\nPreso del pánico subes corriendo y encuentras una puerta. Embistes la puerta y sales al exterior\nobservas la silueta de una estatua en la mitad del patio\\n\\tademás puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase El sonido del chapoteo te hace recordar rápidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crítica)\n");
+				locura+=7;
+				comprobadorLocura(locura);
+				break;
+			}
+
+		}
+	}
 
 	public static void dormirse(Scanner scan) {
 
@@ -347,26 +364,7 @@ public class JuegoOpciones {
 
 	}
 
-	public static void comprobadorLocura(int locura) {
 
-				} 
-				else {
-					System.out.println("Tratas de averiguar qué es el extraño fluído que tienes bajo tus pies, acercas la cerilla pero a penas eres capaz de ver algo que no sea el color rojo, parece sangre pero no estás seguro de dónde puede proceder, comienzas a avanzar lentamente siguiendo el rastro y te cortas con un pequeño trozo de metal en la pierna. A medida que te acercas a las puerta, sientes como el suelo vibra bajo tus pies, como si algo muy pesado estuviera corriendo. Crees que estás volviéndote loco y lo ignoras.\nAbres la enorme puerta y al otro lado encuentras un espejo con una mancha de sangre que dice:\n\t*Nunca podremos salir de aquí*\n\nDebido a tus heridas caes al suelo desorientado.\n");
-					opcionUsuario = 15; //continuar juego en bucle
-					numeroVecesJugadas++;
-
-				}
-
-				break;
-			default:
-				System.out.println("Comienzas a sentir los gruñidos de antes detrás de tí y decides subir las escaleras esperando llegar a una salida.\nPreso del pánico subes corriendo y encuentras una puerta. Embistes la puerta y sales al exterior\nobservas la silueta de una estatua en la mitad del patio\\n\\tademás puedes ver una hilera de almenaras que bordean el patio como si de una fortaleza se tratase El sonido del chapoteo te hace recordar rápidamente que algo te persigue y aunque muerto de miedo, consigues cerrar la puerta. (tu nivel de locura aumenta de forma crítica)\n");
-				locura+=7;
-				comprobadorLocura(locura);
-				break;
-			}
-
-		}
-	}
 	static void comprobadorLocura(int locura) {
 
 		if (locura < 5) {
