@@ -179,7 +179,7 @@ public class JuegoOpciones {
 			opcionUsuario = 15;
 		}
 		
-		
+	}
 
 	static void trampilla(Scanner scan) {
 		int locura = 0;
